@@ -33,8 +33,10 @@
               }
             ],
             "styles": [
+              "node_modules/ngx-spinner/animations/square-jelly-box.css",
               "@angular/material/prebuilt-themes/azure-blue.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
