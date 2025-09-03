@@ -13,6 +13,15 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes), 
     provideHttpClient(),
     provideAnimations(),
-    provideToastr()
+    provideToastr({
+      closeButton: true,
+      newestOnTop: true,
+      progressBar: true,
+      preventDuplicates: true,
+      countDuplicates: true,
+      resetTimeoutOnDuplicate: true,
+      includeTitleDuplicates: true,
+      positionClass: 'toast-bottom-center'
+    })
   ]
 };
