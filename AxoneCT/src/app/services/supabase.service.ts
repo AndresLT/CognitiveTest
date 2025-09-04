@@ -33,4 +33,7 @@ export class SupabaseService {
     return this.supabase.from(table).delete().eq('id', id);
   }
 
+  async getUserByEmail(email: string) {
+    return await this.supabase.from('Users').select('*').eq('email',email);
+  }
 }

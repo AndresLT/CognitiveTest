@@ -25,3 +25,18 @@ body {
       "Segoe UI Symbol";
 }
 
+p{
+      margin: 0;
+}
+
+.title{
+      color: var(--blue);
+}
+
+p{
+      color: var(--dark-grey);
+}
+
+.button{
+      background-color: var(--green) !important;
+}
