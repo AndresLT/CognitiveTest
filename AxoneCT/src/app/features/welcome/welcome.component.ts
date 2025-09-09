@@ -7,10 +7,11 @@ import {MatButtonModule} from '@angular/material/button';
 import { SupabaseService } from '../../services/supabase.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { InstructionsComponent } from '../instructions/instructions.component';
 
 @Component({
   selector: 'app-welcome',
-  imports: [FormsModule, MatInputModule, MatFormFieldModule, ReactiveFormsModule, MatButtonModule],
+  imports: [FormsModule, MatInputModule, MatFormFieldModule, ReactiveFormsModule, MatButtonModule, InstructionsComponent],
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.scss'
 })
@@ -56,4 +57,7 @@ export class WelcomeComponent {
     this.sharedService.userEmail.setValue('')
   }
 
+  agree(){
+    this.page = 3
+  }
 }

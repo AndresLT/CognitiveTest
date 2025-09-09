@@ -1,33 +1,173 @@
 <div class="main-container">
-    @if(page == 1){
-        <p class="title">Relación entre el uso de la Inteligencia Artificial Generativa y el desempeño del pensamiento crítico y creativo en estudiantes universitarios en la ciudad de Bogotá</p>
-        <p class="welcome-text text">Bienvenido(a)!</p>
-        <p class="secondary-text text">Si respondiste la encuesta inicial y fuiste seleccionado podras acceder a la siguiente seccion. Ingresa tu correo electronico institucional:</p>
-    
-        <form>
-            <div class="input-container">
-                <mat-form-field class="example-full-width" appearance="outline" class="input">
-                    <mat-label>Correo electronico institucional</mat-label>
-                    <input type="email" matInput [formControl]="sharedService.userEmail" placeholder="Ex. pat@example.com">
-                    @if (sharedService.userEmail.hasError('email') && !sharedService.userEmail.hasError('required')) {
-                        <mat-error>Por favor ingresa un email correcto.</mat-error>
-                    }
-                    @if (sharedService.userEmail.hasError('required')) {
-                        <mat-error>Por favor ingresa un <strong>correo electronico institucional</strong>.</mat-error>
-                    }
-                </mat-form-field>
-    
-                @if(sharedService.userValidated){
-                    <button (click)="next()" class="button" mat-flat-button>Continuar</button>
-                }@else{
-                    <button (click)="loadItem()" class="button" mat-flat-button [disabled]="sharedService.userEmail.invalid">Validar</button>
-                }
-            </div>
-        </form>
+    @defer(when page == 1){
+        @if(page == 1){
 
-    }@else {
-        <p>Consentimiento informado</p>
-        <p>Hola {{ sharedService.getUser().name }}</p>
-        <p class="wrong-user">No eres tu? Valida nuevamente tu correo haciendo click <span class="link" (click)="back()">aqui</span>.</p>
+            <p class="title">Relación entre el uso de la Inteligencia Artificial Generativa y el desempeño del pensamiento crítico y creativo en estudiantes universitarios en la ciudad de Bogotá</p>
+            <p class="welcome-text text">Bienvenido(a)!</p>
+            <p class="secondary-text text">Si respondiste la encuesta inicial y fuiste seleccionado podras acceder a la siguiente seccion. Ingresa tu correo electronico institucional:</p>
+        
+            <form>
+                <div class="input-container">
+                    <mat-form-field class="example-full-width" appearance="outline" class="input">
+                        <mat-label>Correo electronico institucional</mat-label>
+                        <input type="email" matInput [formControl]="sharedService.userEmail" placeholder="Ex. pat@example.com">
+                        @if (sharedService.userEmail.hasError('email') && !sharedService.userEmail.hasError('required')) {
+                            <mat-error>Por favor ingresa un email correcto.</mat-error>
+                        }
+                        @if (sharedService.userEmail.hasError('required')) {
+                            <mat-error>Por favor ingresa un <strong>correo electronico institucional</strong>.</mat-error>
+                        }
+                    </mat-form-field>
+        
+                    @if(sharedService.userValidated){
+                        <button (click)="next()" class="button" mat-flat-button>Continuar</button>
+                    }@else{
+                        <button (click)="loadItem()" class="button" mat-flat-button [disabled]="sharedService.userEmail.invalid">Validar</button>
+                    }
+                </div>
+            </form>
+        }
+
+    }
+    
+    @defer (when page == 2) {
+        @if(page == 2){
+
+            <p>Hola, <strong>{{ sharedService.getUser().name }}</strong>. Por favor lee con atencion el siguiente texto y al final decide si aceptas o rechazas participar en esta prueba.</p>
+            <p class="wrong-user">No eres tu? Valida nuevamente tu correo haciendo click <span class="link" (click)="back()">aqui</span>.</p>
+            <p class="title title-page2">Consentimiento informado</p>
+    
+            <div class="main-text">
+                <div class="row">
+                    <p class="subtitle"> <strong>Titulo del estudio</strong></p>
+                    <p class="text">Relación entre el uso de la Inteligencia Artificial Generativa y el desempeño del pensamiento crítico y creativo en estudiantes universitarios en la ciudad de Bogotá</p>
+                </div>
+    
+                <div class="row">
+                    <p class="subtitle"> <strong>Investigadores</strong>:</p>
+                    <p class="text">Karen Tatiana Lozano Triana</p>
+                    <p class="text">Juan Carlos Zamora Núñez</p>
+                    <p class="text">Universidad Manuela Beltrán</p>
+                </div>
+    
+                <div class="row">
+                    <p class="subtitle"> <strong>Asesor</strong>:</p>
+                    <p class="text">Carlos Andrés Caldas Quintero</p>
+                </div>
+                
+                <div class="row">
+                    <p class="subtitle"> <strong>Objetivo del estudio</strong></p>
+                    <p class="text">El propósito de este estudio es analizar la relación entre el uso de herramientas de
+                                    inteligencia artificial generativa y el desempeño del pensamiento crítico y creativo
+                                    en estudiantes universitarios en la ciudad de Bogotá.</p>
+                </div>
+                
+                <div class="row">
+                    <p class="subtitle"> <strong>Voluntariedad y participación</strong></p>
+                    <p class="text">Tu participación en este estudio es completamente voluntaria. Tienes la libertad de no
+                                    participar o de retirarte en cualquier momento sin que esto te genere consecuencias
+                                    negativas ni perjuicios de ningún tipo. </p>
+                </div>
+                
+                <div class="row">
+                    <p class="subtitle"> <strong>Procedimientos</strong></p>
+                    <p class="text">En esta segunda fase, se te pedirá realizar una serie de tareas cognitivas diseñadas
+                                    para evaluar el pensamiento crítico y creativo. Estas tareas se desarrollarán de
+                                    manera virtual, a través de una plataforma segura y accesible desde cualquier dispositivo
+                                    con conexión a internet.</p>
+                    <p class="text">El tiempo estimado de participación es de aproximadamente 15 minutos.</p>
+                </div>
+                
+                <div class="row">
+                    <p class="subtitle"> <strong>Confidencialidad y tratamiento de datos</strong></p>
+                    <p class="text">Toda la información recopilada será tratada con estricta confidencialidad. Tus datos
+                                    personales serán protegidos bajo las disposiciones de la Ley 1581 de 2012 de
+                                    protección de datos personales en Colombia.</p>
+                    <ul>
+                        <li>
+                            <p class="text">La información obtenida será utilizada únicamente con fines académicos e investigativos.</p>
+                        </li>
+                        <li>
+                            <p class="text">Los resultados se presentarán de manera global y anónima, sin identificar individualmente a los participantes.</p>
+                        </li>
+                        <li>
+                            <p class="text">Solo el equipo de investigación tendrá acceso a la base de datos.</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="row">
+                    <p class="subtitle"> <strong>Derechos del participante</strong></p>
+                    <p class="text">Como participante en este estudio, tienes derecho a:</p>
+                    <ul>
+                        <li>
+                            <p class="text">Derecho a la información: recibir explicaciones claras sobre el objetivo, los rocedimientos y el alcance del estudio.</p>
+                        </li>
+                        <li>
+                            <p class="text">Derecho a la confidencialidad: la protección de tu identidad y de tus datos personales en todo momento.</p>
+                        </li>
+                        <li>
+                            <p class="text">Derecho a la rectificación y supresión: solicitar la actualización, corrección o eliminación de tus datos personales, conforme a la legislación vigente.</p>
+                        </li>
+                        <li>
+                            <p class="text">Derecho a la seguridad: se implementarán medidas técnicas y administrativas que garanticen la protección de tu información.</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="row">
+                    <p class="subtitle"> <strong>Riesgos y beneficios</strong></p>
+                    <ul>
+                        <li>
+                            <p class="text">Riesgos: La participación en este estudio no implica riesgos físicos ni
+                                            emocionales significativos. Las tareas cognitivas podrían generar cierta fatiga
+                                            mental, similar a la experimentada en actividades académicas habituales, pero no
+                                            conllevan riesgos mayores.</p>
+                        </li>
+                        <li>
+                            <p class="text">Beneficios: Tu participación contribuirá a la generación de conocimiento sobre el
+                                            impacto de la inteligencia artificial en el ámbito académico. Además, tendrás la
+                                            posibilidad de participar en un sorteo de un premio como reconocimiento por tu
+                                            compromiso en esta fase.</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="row">
+                    <p class="subtitle"> <strong>Consentimiento</strong></p>
+                    <p class="text">Al dar clic en “Acepto” o continuar con las tareas cognitivas, declaras que:</p>
+                    <ul>
+                        <li>
+                            <p class="text">Has leído y comprendido la información contenida en este documento.</p>
+                        </li>
+                        <li>
+                            <p class="text">Aceptas participar de manera voluntaria y sin ningún tipo de coacción.</p>
+                        </li>
+                        <li>
+                            <p class="text">Autorizas el tratamiento de tus datos personales con fines académicos y de investigación, conforme a lo descrito anteriormente.</p>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="row">
+                    <p class="text">Contacto del equipo investigador: karenlozano.tt&#64;academia.umb.edu.co o juanzamora.cn&#64;academia.umb.edu.co</p>
+                </div>
+    
+                <div class="buttons-container">
+                        <button (click)="back()" mat-raised-button>No acepto</button>
+                        <button (click)="agree()" class="button" mat-flat-button>Acepto</button>
+    
+                </div>
+                
+            </div>
+        }
+    }
+    
+    @defer(when page == 3){
+        @if(page == 3){
+            <div class="test-container">
+                <app-instructions></app-instructions>
+            </div>
+        }
     }
 </div>
