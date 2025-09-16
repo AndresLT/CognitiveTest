@@ -17,10 +17,10 @@ import { InstructionsComponent } from '../instructions/instructions.component';
 })
 export class WelcomeComponent {
 
-  page = 1
-
   constructor(public sharedService: SharedService, private readonly supabaseService: SupabaseService){
-
+    if(localStorage.getItem('user')){
+      this.sharedService.page = 2
+    }
   }
 
   async loadItem() {
@@ -46,18 +46,14 @@ export class WelcomeComponent {
   }
 
   next(){
-    this.page = 2
+    this.sharedService.page = 2
   }
 
   back(){
-    this.page = 1
-    localStorage.removeItem('user')
-    this.sharedService.userEmail.enable()
-    this.sharedService.userValidated = false
-    this.sharedService.userEmail.setValue('')
+    this.sharedService.logout()
   }
 
   agree(){
-    this.page = 3
+    this.sharedService.page = 3
   }
 }

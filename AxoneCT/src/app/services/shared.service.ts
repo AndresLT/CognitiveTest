@@ -10,6 +10,9 @@ export class SharedService {
 
   userEmail = new FormControl('', [Validators.required, Validators.email])
   userValidated = false
+  page = 1
+
+  testWordGroup = [['Maestra', 'Estudiantes', 'Clase'], ['Pizarra', 'Tiza', 'Ecuacion']]
 
   constructor(private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
@@ -36,5 +39,13 @@ export class SharedService {
 
   getUser(){
     return JSON.parse(localStorage.getItem('user') || '')
+  }
+
+  logout(){
+    this.page = 1
+    localStorage.removeItem('user')
+    this.userEmail.enable()
+    this.userValidated = false
+    this.userEmail.setValue('')
   }
 }

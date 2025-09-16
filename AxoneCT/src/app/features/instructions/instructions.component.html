@@ -1,12 +1,89 @@
 <div class="main-container">
-    <p class="title">Instrucciones</p>
-    <p>A continuación, comenzarás con el desarrollo de las tareas cognitivas, las cuales estarán divididas en dos partes:</p>
-    <ol>
-        <li>
-            <p>Primera parte: enfocada en el pensamiento creativo.</p>
-        </li>
-        <li>
-            <p>Segunda parte: enfocada en el pensamiento crítico.</p>
-        </li>
-    </ol>
+    <div class="top">
+        @defer (when page == 1) {
+            @if(page == 1){
+                <p class="title">Instrucciones</p>
+                <p>A continuación, comenzarás con el desarrollo de las tareas cognitivas, las cuales estarán divididas en dos partes (antes de iniciar cada parte encontrarás instrucciones adicionales):</p>
+                <ol>
+                    <li>
+                        <p>Primera parte: enfocada en el pensamiento creativo.</p>
+                    </li>
+                    <li>
+                        <p>Segunda parte: enfocada en el pensamiento crítico.</p>
+                    </li>
+                </ol>
+            }
+        }
+
+        @defer (when page ==2) {
+            @if(page == 2){
+                <p class="title">Pensamiento creativo</p>
+                <ol>
+                    <li>
+                        <p>Se te presentarán tres imágenes que contienen múltiples elementos visuales.</p>
+                    </li>
+                    <li>
+                        <p>Observa cada imagen con mucha atención. Detente en los detalles, analiza los objetos, los símbolos y las posibles relaciones entre ellos.</p>
+                    </li>
+                    <li>
+                        <p>Tu tarea será formar grupos de tres palabras que tengan una relación clara entre sí, tomando como base lo que observes en la imagen.</p>
+                    </li>
+                    <li>
+                        <p>Por cada imagen tendrás <strong>1 minuto</strong> para formar tantos grupos de palabras como puedas.</p>
+                    </li>
+                    <li>
+                        <p> <strong>Al dar click en "Continuar" iniciará un contador de 1 minuto por imagen. Al finalizar el primer minuto y des click en continuar iniciará el siguiente contador</strong>.</p>
+                    </li>
+                </ol>
+                <p class="title">Ejemplo:</p>
+                <div class="example">
+                    <div class="img-container">
+                        <img src="../../../assets/images/1.jpg" alt="">
+                    </div>
+                    <div class="input-container">
+                        <mat-form-field class="example-form-field" appearance="outline">
+                            <mat-label>Grupo de palabras</mat-label>
+                            <mat-chip-grid #chipGrid aria-label="Enter keywords" [formControl]="formControl">
+                                @for (keyword of keywords(); track keyword) {
+                                <mat-chip-row (removed)="removeKeyword(keyword)">
+                                    {{keyword}}
+                                    <button matChipRemove [attr.aria-label]="'remove ' + keyword">
+                                    <mat-icon>cancel</mat-icon>
+                                    </button>
+                                </mat-chip-row>
+                                }
+                            </mat-chip-grid>
+                            <input
+                                placeholder="Nueva palabra..."
+                                [matChipInputFor]="chipGrid"
+                                (matChipInputTokenEnd)="add($event)"
+                            />
+                        </mat-form-field>
+
+                        <div class="groups">
+                            <ol>
+                            @for(wordGroup of sharedService.testWordGroup; track wordGroup) {
+                                <li>
+                                <div class="group">
+
+                                        @for(word of wordGroup; let i = $index; track word) {
+                                            <span class="word">{{word}}</span>
+                                            @if(i < wordGroup.length - 1) {
+                                                <span> - </span>
+                                            }
+                                        }
+                                    </div>
+                                </li>
+                                }
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <div class="bottom">
+        <button (click)="next()" class="button" mat-flat-button>Continuar</button>
+    </div>
 </div>
