@@ -20,7 +20,13 @@ export class InstructionsComponent {
   readonly formControl = new FormControl(['']);
   
   next() {
-    this.page++;
+    if(this.page < 3){
+      this.page++;
+    }else{
+      this.sharedService.resetCountdown()
+      this.sharedService.keywords.set([])
+      this.sharedService.currentImage++
+    }
   }
 
   announcer = inject(LiveAnnouncer);

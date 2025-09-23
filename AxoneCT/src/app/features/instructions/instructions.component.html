@@ -104,12 +104,15 @@
 
         @defer (when page ==3) {
             @if(page == 3){
-                <app-image-test></app-image-test>
+                <div class="test-container">
+
+                    <app-image-test></app-image-test>
+                </div>
             }
         }
     </div>
 
     <div class="bottom">
-        <button (click)="next()" class="button" mat-flat-button>Continuar</button>
+        <button (click)="next()" class="button" mat-flat-button [disabled]="page == 3 && sharedService.remainingSeconds > 0">Continuar</button>
     </div>
 </div>

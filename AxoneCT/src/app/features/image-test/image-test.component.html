@@ -1,7 +1,142 @@
 <div class="timer-container">
     <h3>⏳ Tiempo restante:</h3>
     <p class="timer-display">
-    {{ minutes }}:{{ seconds < 10 ? '0' + seconds : seconds }}
+    {{ sharedService.minutes }}:{{sharedService.seconds < 10 ? '0' + sharedService.seconds : sharedService.seconds }}
     </p>
 
 </div>
+<h4>Imagen {{ sharedService.currentImage}} / 3 </h4>
+
+@if(sharedService.currentImage == 1){
+    <div class="example">
+        <div class="img-container">
+            <img src="../../../assets/images/2.jpeg" alt="">
+        </div>
+        <div class="input-container">
+            <mat-form-field class="example-form-field" appearance="outline">
+                <mat-label>Grupo de palabras</mat-label>
+                <mat-chip-grid #chipGrid aria-label="Enter keywords" [formControl]="sharedService.formControl">
+                    @for (keyword of sharedService.keywords(); track keyword) {
+                    <mat-chip-row>
+                        {{keyword}}
+                    </mat-chip-row>
+                    }
+                </mat-chip-grid>
+                <input
+                    placeholder="Nueva palabra..."
+                    [matChipInputFor]="chipGrid"
+                    (matChipInputTokenEnd)="addToGroup1($event)"
+                    [disabled]="sharedService.remainingSeconds == 0"
+                />
+            </mat-form-field>
+    
+            <div class="groups">
+                <h3>Grupos de palabras creados:</h3>
+                <ol>
+                @for(wordGroup of sharedService.wordGroup1; track wordGroup) {
+                    <li>
+                    <div class="group">
+    
+                            @for(word of wordGroup; let i = $index; track word) {
+                                <span class="word">{{word}}</span>
+                                @if(i < wordGroup.length - 1) {
+                                    <span> - </span>
+                                }
+                            }
+                        </div>
+                    </li>
+                    }
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+}@else if (sharedService.currentImage == 2) {
+    <div class="example">
+        <div class="img-container">
+            <img src="../../../assets/images/3.png" alt="">
+        </div>
+        <div class="input-container">
+            <mat-form-field class="example-form-field" appearance="outline">
+                <mat-label>Grupo de palabras</mat-label>
+                <mat-chip-grid #chipGrid aria-label="Enter keywords" [formControl]="sharedService.formControl">
+                    @for (keyword of sharedService.keywords(); track keyword) {
+                    <mat-chip-row>
+                        {{keyword}}
+                    </mat-chip-row>
+                    }
+                </mat-chip-grid>
+                <input
+                    placeholder="Nueva palabra..."
+                    [matChipInputFor]="chipGrid"
+                    (matChipInputTokenEnd)="addToGroup2($event)"
+                    [disabled]="sharedService.remainingSeconds == 0"
+                />
+            </mat-form-field>
+    
+            <div class="groups">
+                <h3>Grupos de palabras creados:</h3>
+
+                <ol>
+                @for(wordGroup of sharedService.wordGroup2; track wordGroup) {
+                    <li>
+                    <div class="group">
+    
+                            @for(word of wordGroup; let i = $index; track word) {
+                                <span class="word">{{word}}</span>
+                                @if(i < wordGroup.length - 1) {
+                                    <span> - </span>
+                                }
+                            }
+                        </div>
+                    </li>
+                    }
+                </ol>
+            </div>
+        </div>
+    </div>
+
+}@else if (sharedService.currentImage == 3) {
+    <div class="example">
+        <div class="img-container">
+            <img src="../../../assets/images/4.png" alt="">
+        </div>
+        <div class="input-container">
+            <mat-form-field class="example-form-field" appearance="outline">
+                <mat-label>Grupo de palabras</mat-label>
+                <mat-chip-grid #chipGrid aria-label="Enter keywords" [formControl]="sharedService.formControl">
+                    @for (keyword of sharedService.keywords(); track keyword) {
+                    <mat-chip-row>
+                        {{keyword}}
+                    </mat-chip-row>
+                    }
+                </mat-chip-grid>
+                <input
+                    placeholder="Nueva palabra..."
+                    [matChipInputFor]="chipGrid"
+                    (matChipInputTokenEnd)="addToGroup3($event)"
+                    [disabled]="sharedService.remainingSeconds == 0"
+                />
+            </mat-form-field>
+    
+            <div class="groups">
+                <ol>
+                @for(wordGroup of sharedService.wordGroup3; track wordGroup) {
+                    <li>
+                    <div class="group">
+    
+                            @for(word of wordGroup; let i = $index; track word) {
+                                <span class="word">{{word}}</span>
+                                @if(i < wordGroup.length - 1) {
+                                    <span> - </span>
+                                }
+                            }
+                        </div>
+                    </li>
+                    }
+                </ol>
+            </div>
+        </div>
+    </div>
+
+}

@@ -2,8 +2,69 @@
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: center;
 
     h3{
         margin: 0;
+    }
+}
+
+h4{
+    margin: 0;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.example{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .img-container{
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (width <= 630px) { 
+            img{
+                width: 340px;
+            }
+        }     // Mobile
+        @media (width > 630px) and (width <= 768px) { 
+            img{
+                width: 500px;
+            }
+        }     // Tablet
+        @media (width > 768px) and (width <= 1024px) { 
+            img{
+                width: 590px;
+            }
+        }    // Small Desktop
+        @media (width > 1024px) and (width <= 1280px) { 
+            img{
+                width: 700px;
+            }
+        }   // Large Desktop
+        @media (width > 1280px) { 
+            img{
+                width: 630px;
+            }
+        }     // Ultra-wide
+    }
+
+    .input-container{
+        flex-grow: 2;
+        .example-form-field{
+            width: 100%;
+        }
+
+        .groups{
+            .group{
+                display: flex;
+                gap: 5px;
+            }
+        }
     }
 }

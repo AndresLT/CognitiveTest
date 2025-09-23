@@ -13,6 +13,9 @@
         height: calc(100% - 40px);
         overflow-y: scroll;
         width: 100%;
+        .test-container{
+            width: 100%;
+        }
         .title{
             font-size: 22px;
             font-weight: 500;
@@ -72,6 +75,10 @@
                 }
             }
         }
+    }
+
+    .bottom{
+        padding-top: 10px;
     }
 
 }
