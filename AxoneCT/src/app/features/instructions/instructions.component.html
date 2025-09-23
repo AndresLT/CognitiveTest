@@ -113,6 +113,6 @@
     </div>
 
     <div class="bottom">
-        <button (click)="next()" class="button" mat-flat-button [disabled]="page == 3 && sharedService.remainingSeconds > 0">Continuar</button>
+        <button (click)="next()" class="button" mat-flat-button [disabled]="(page == 3 && sharedService.remainingSeconds > 0) || sharedService.currentImage == 3">Continuar</button>
     </div>
 </div>
