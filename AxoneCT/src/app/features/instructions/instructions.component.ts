@@ -6,10 +6,11 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import {MatIconModule} from '@angular/material/icon';
 import { SharedService } from '../../services/shared.service';
+import { ImageTestComponent } from '../image-test/image-test.component';
 
 @Component({
   selector: 'app-instructions',
-  imports: [MatButtonModule, MatFormFieldModule, MatChipsModule, FormsModule, ReactiveFormsModule, MatIconModule],
+  imports: [MatButtonModule, MatFormFieldModule, MatChipsModule, FormsModule, ReactiveFormsModule, MatIconModule, ImageTestComponent],
   templateUrl: './instructions.component.html',
   styleUrl: './instructions.component.scss'
 })

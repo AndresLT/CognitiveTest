@@ -34,6 +34,29 @@
                     <li>
                         <p> <strong>Al dar click en "Continuar" iniciará un contador de 1 minuto por imagen. Al finalizar el primer minuto y des click en continuar iniciará el siguiente contador</strong>.</p>
                     </li>
+                    <li>
+                        <p>Abajo encontraras un ejemplo de como sera la primera prueba. Encontraras una imagen y un campo de texto, funcionara de la siguiente forma:</p>
+                        <ol>
+                            <li>
+                                <p>Ingresa tu primer palabra de tu primer grupo de palabras.</p>
+                            </li>
+                            <li>
+                                <p>Presiona la tecla "Enter" de tu teclado.</p>
+                            </li>
+                            <li>
+                                <p>Podras ver como se agrega la primer palabra a tu grupo.</p>
+                            </li>
+                            <li>
+                                <p>Escribe la segunda palabra, presiona "Enter" y podras ver que se agrega la segunda palabra a tu grupo.</p>
+                            </li>
+                            <li>
+                                <p>Cuando escribas la tercer palabra y presiones "Enter", se creara tu primer grupo de palabras automaticamente y podras verlo justo debajo del campo de texto.</p>
+                            </li>
+                            <li>
+                                <p> <strong>Pruablo aca abajo antes de empezar la prueba e inicia cuando te sientas preparado(a). Recuerda que no podras retroceder en las fases de la prueba</strong> . </p>
+                            </li>
+                        </ol>
+                    </li>
                 </ol>
                 <p class="title">Ejemplo:</p>
                 <div class="example">
@@ -45,11 +68,8 @@
                             <mat-label>Grupo de palabras</mat-label>
                             <mat-chip-grid #chipGrid aria-label="Enter keywords" [formControl]="formControl">
                                 @for (keyword of keywords(); track keyword) {
-                                <mat-chip-row (removed)="removeKeyword(keyword)">
+                                <mat-chip-row>
                                     {{keyword}}
-                                    <button matChipRemove [attr.aria-label]="'remove ' + keyword">
-                                    <mat-icon>cancel</mat-icon>
-                                    </button>
                                 </mat-chip-row>
                                 }
                             </mat-chip-grid>
@@ -79,6 +99,12 @@
                         </div>
                     </div>
                 </div>
+            }
+        }
+
+        @defer (when page ==3) {
+            @if(page == 3){
+                <app-image-test></app-image-test>
             }
         }
     </div>
