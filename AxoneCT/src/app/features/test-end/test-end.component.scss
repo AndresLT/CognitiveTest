@@ -1,0 +1,32 @@
+.thank-you-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.thank-you-container h1 {
+  color: var(--green);
+}
+
+.thank-you-container p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.thank-you-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.thank-you-container li {
+  margin: 0.5rem 0;
+}
+
+.thank-you-container a {
+  color: #1565c0;
+  text-decoration: none;
+}

@@ -1,0 +1,30 @@
+.radio-group{
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+h2{
+    color: var(--blue);
+}
+
+.text{
+    margin-bottom: 20px;
+    color: var(--dark-grey);
+    background-color: var(--light-grey);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.timer-container{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    h3{
+        margin: 0;
+    }
+}

@@ -10,9 +10,18 @@
 </main>
 
 <ngx-spinner type="square-jelly-box">
-  <p style="color: white">
-    Cargando...
-  </p>
+
+  @if(sharedService.currentImage == 3){
+    
+    <p style="color: white">
+      Enviando respuestas...
+    </p>
+  }@else {
+    <p style="color: white">
+      Cargando...
+    </p>
+
+  }
 </ngx-spinner>
 
 

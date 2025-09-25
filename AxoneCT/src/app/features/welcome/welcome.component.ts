@@ -29,12 +29,18 @@ export class WelcomeComponent {
       const { data, error } = await this.supabaseService.getUserByEmail(this.sharedService.userEmail.value);
       this.sharedService.hideSpinner()
       if (!error){
-        console.log(data[0]);
         if(data[0]){
-          this.sharedService.showToastSuccess('Puedes continuar a la siguiente seccion.', 'Correo validado correctamente!')
-          this.sharedService.userEmail.disable()
-          this.sharedService.userValidated = true
-          localStorage.setItem('user',JSON.stringify(data[0]))
+          this.sharedService.user = data[0]
+          if(!this.sharedService.user.testCompleted){
+
+            this.sharedService.showToastSuccess('Puedes continuar a la siguiente seccion.', 'Correo validado correctamente!')
+            this.sharedService.userEmail.disable()
+            this.sharedService.userValidated = true
+            localStorage.setItem('user',JSON.stringify(data[0]))
+          }else{
+            this.sharedService.showToastWarning('Ya has presentado esta prueba', 'Si crees que se trata de un error intenta comunicarte con las personas encargadas.')
+
+          }
         }else{
           this.sharedService.showToastWarning('No fuiste seleccionado para nuestra prueba, si crees que se trata de un error intenta comunicarte con las personas encargadas.', 'Correo no encontrado en nuestra base de datos :(')
         }

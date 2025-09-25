@@ -1,0 +1,90 @@
+<div class="timer-container">
+    <h3>⏳ Tiempo restante:</h3>
+    <p class="timer-display">
+    {{ sharedService.minutesText }}:{{sharedService.secondsText < 10 ? '0' + sharedService.secondsText : sharedService.secondsText }}
+    </p>
+
+</div>
+
+<h2>Enunciado 1</h2>
+<h4>Lee el siguiente texto y responde las preguntas:</h4>
+<p class="text">
+    &quot;En la ciudad de Bogotá se observa un creciente sentimiento de vulnerabilidad en algunos
+    barrios marginados, donde la percepción de inseguridad y la limitada oferta de servicios
+    públicos coexisten con la intervención estatal. Diversos sectores de la sociedad debaten si
+    estas condiciones son consecuencia de fallas en la implementación de políticas
+    gubernamentales o si responden a factores estructurales ligados a la desigualdad
+    socioeconómica. La discusión se complica al considerar que, a pesar de los esfuerzos de
+    las autoridades, muchos residentes continúan sintiéndose desprotegidos ante la presencia
+    de actores ilícitos y la ausencia de soluciones integrales.&quot;
+</p>
+
+<label for="respuesta1"> <strong>1. ¿Cuál de los siguientes factores se destaca en el enunciado como una causa
+subyacente de la vulnerabilidad en ciertos barrios de Bogotá?</strong> </label>
+<mat-radio-group [disabled]="sharedService.remainingSecondsText < 1" aria-label="Select an option" class="radio-group" name="respuesta1" id="respuesta1" required [(ngModel)]="sharedService.answer1">
+    <mat-radio-button class="radio" value="A">A. Una débil intervención estatal y escasa inversión en servicios públicos.</mat-radio-button>
+    <mat-radio-button class="radio" value="B">B. La inmediatez en la respuesta de las autoridades ante situaciones de emergencia.</mat-radio-button>
+    <mat-radio-button class="radio" value="C">C. Los factores estructurales ligados a la desigualdad socioeconómica.</mat-radio-button>
+    <mat-radio-button class="radio" value="D">D. La combinación de insuficiente intervención estatal y desigualdad estructural.</mat-radio-button>
+</mat-radio-group>
+
+<label for="respuesta2"> <strong>2. Según el enunciado, ¿cuál de las siguientes opciones resume mejor el dilema sobre la
+intervención estatal en relación con la vulnerabilidad?</strong> </label>
+<mat-radio-group [disabled]="sharedService.remainingSecondsText < 1" aria-label="Select an option" class="radio-group" name="respuesta2" id="respuesta2" required [(ngModel)]="sharedService.answer2">
+    <mat-radio-button class="radio" value="A">A. Las políticas gubernamentales han logrado eliminar la sensación de vulnerabilidad.</mat-radio-button>
+    <mat-radio-button class="radio" value="B">B. Existen dos perspectivas: una que culpa a las deficiencias en la acción estatal y otra
+que atribuye el problema a condiciones estructurales profundas.</mat-radio-button>
+    <mat-radio-button class="radio" value="C">C. La presencia de actores ilícitos es el único factor que influye en la percepción de
+inseguridad.</mat-radio-button>
+    <mat-radio-button class="radio" value="D">D. Una combinación de factores estatales y estructurales, en donde se debate la
+responsabilidad del gobierno frente a problemas socioeconómicos.</mat-radio-button>
+</mat-radio-group>
+
+<h2>Enunciado 2</h2>
+<h4>Lee el siguiente texto y responde las preguntas:</h4>
+<p class="text">
+    &quot;El auge de las plataformas digitales ha permitido la libre expresión de opiniones, pero
+    también ha propiciado la proliferación de discursos de odio y actitudes discriminatorias,
+    generando un ambiente de vulnerabilidad para diversos grupos minoritarios. Esta dualidad
+    plantea un reto: por un lado, se defiende el derecho a la libertad de expresión; por otro, se
+    exige la protección de las personas frente a mensajes que pueden vulnerar su integridad
+    emocional y social. En este contexto, la necesidad de establecer políticas reguladoras que
+    equilibren ambos derechos se torna esencial, considerando que la sobreabundancia de
+    opiniones, muchas veces polarizadas, puede agravar la sensación de exclusión y
+    desprotección en ciertos colectivos.&quot;
+</p>
+
+<label for="respuesta3"> <strong>3. ¿Cuál es uno de los principales desafíos que se destaca en el enunciado respecto a la
+libertad de expresión en el entorno digital?</strong> </label>
+<mat-radio-group [disabled]="sharedService.remainingSecondsText < 1" aria-label="Select an option" class="radio-group" name="respuesta3" id="respuesta3" required [(ngModel)]="sharedService.answer3">
+    <mat-radio-button class="radio" value="A">A. Eliminar por completo las opiniones negativas en línea.</mat-radio-button>
+    <mat-radio-button class="radio" value="B">B. Permitir una mayor moderación del contenido, lo que implicaría una leve restricción de
+la libertad de expresión.</mat-radio-button>
+    <mat-radio-button class="radio" value="C">C. Fomentar la autorregulación de las plataformas digitales para alcanzar un equilibrio
+parcial entre protección y libertad.</mat-radio-button>
+    <mat-radio-button class="radio" value="D">D. Proteger a los grupos minoritarios de discursos de odio sin sacrificar la libertad de
+expresión.</mat-radio-button>
+</mat-radio-group>
+
+<label for="respuesta4"> <strong>4. El enunciado sugiere que la implementación de políticas reguladoras es necesaria para:</strong> </label>
+<mat-radio-group [disabled]="sharedService.remainingSecondsText < 1" aria-label="Select an option" class="radio-group" name="respuesta4" id="respuesta4" required [(ngModel)]="sharedService.answer4">
+    <mat-radio-button class="radio" value="A">A. Lograr un equilibrio entre la libertad de expresión y la protección de las personas.</mat-radio-button>
+    <mat-radio-button class="radio" value="B">B. Restringir drásticamente el flujo de opiniones, limitando la libertad de expresión.</mat-radio-button>
+    <mat-radio-button class="radio" value="C">C. Implementar medidas que minimicen la propagación de discursos de odio, aunque esto
+implique una leve limitación en la diversidad de opiniones.</mat-radio-button>
+    <mat-radio-button class="radio" value="D">D. Regular de manera moderada el contenido en línea para mitigar los discursos de odio
+sin restringir completamente el intercambio de ideas.</mat-radio-button>
+</mat-radio-group>
+
+<label for="respuesta5"> <strong>5. ¿Qué aspecto de vulnerabilidad se resalta en el enunciado en relación con el uso de
+plataformas digitales?</strong> </label>
+<mat-radio-group [disabled]="sharedService.remainingSecondsText < 1" aria-label="Select an option" class="radio-group" name="respuesta5" id="respuesta5" required [(ngModel)]="sharedService.answer5">
+    <mat-radio-button class="radio" value="A">A. La vulnerabilidad ante ataques cibernéticos que comprometen la seguridad de los
+datos personales.</mat-radio-button>
+    <mat-radio-button class="radio" value="B">B. La sensación de exclusión y desprotección que sufren ciertos colectivos frente a
+discursos de odio.</mat-radio-button>
+    <mat-radio-button class="radio" value="C">C. El impacto emocional negativo derivado de la exposición a discursos polarizados, que
+puede provocar una leve sensación de vulnerabilidad.</mat-radio-button>
+    <mat-radio-button class="radio" value="D">D. La exposición prolongada a mensajes polarizados en línea, que genera un alto grado
+de vulnerabilidad emocional y social en determinados grupos.</mat-radio-button>
+</mat-radio-group>
