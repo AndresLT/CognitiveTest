@@ -111,6 +111,7 @@ export class InstructionsComponent {
       if(!error){
         this.page++
         this.sharedService.showToastSuccess('Respuestas enviadas correctamente', 'Te agradecemos tu participacion!')
+        this.sharedService.cleanApp()
 
       }else{
         this.sharedService.showToastError('Ha ocurrido un error','Intenta nuevamente')
@@ -119,7 +120,6 @@ export class InstructionsComponent {
     }else{
       this.sharedService.showToastError('Ha ocurrido un error','Intenta nuevamente')
     }
-    this.sharedService.cleanApp()
     this.sharedService.hideSpinner()
     
   }

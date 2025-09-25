@@ -88,6 +88,7 @@ export class SharedService {
 
   cleanApp(){
     localStorage.removeItem('user')
+    this.user = new User
     this.userEmail.enable()
     this.userValidated = false
     this.userEmail.setValue('')

@@ -1,5 +1,4 @@
 export class Response{
-    id: number = 0
     userId: number = 0
     imageGroup1: string = '{}'
     imageGroup2: string = '{}'
