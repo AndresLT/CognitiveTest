@@ -62,4 +62,8 @@ export class WelcomeComponent {
   agree(){
     this.sharedService.page = 3
   }
+
+  openDocument(){
+    window.open('https://sthsguhtgaahhbinjege.supabase.co/storage/v1/object/public/AxoneAssets/ConsentimientoInformado.pdf','_blank')
+  }
 }

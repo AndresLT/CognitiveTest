@@ -30,7 +30,7 @@ export class InstructionsComponent {
     }
     
     if(this.page == 4){
-      alert('¡Recuerda que el contador de 5 minutos inciara al dar click en "Ok", dispondras de este tiempo para leer los 2 enunciados y responder las preguntas!')
+      alert('¡Recuerda que el contador de 5 minutos inciará al dar click en "Ok", dispondrás de este tiempo para leer los 2 enunciados y responder las preguntas!')
       this.page++;
     }
     if(this.page == 3 && this.sharedService.currentImage == 3){
@@ -45,7 +45,7 @@ export class InstructionsComponent {
       this.sharedService.currentImage++
     }
     if(this.page == 3 && this.sharedService.currentImage == 1){
-      alert('¡Recuerda que el contador de 1 minuto inciara al dar click en "Ok"!')
+      alert('¡Recuerda que el contador de 1 minuto inciará al dar click en "Ok"!')
 
     }
   }
