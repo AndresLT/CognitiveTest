@@ -12,6 +12,7 @@ import { TestEndComponent } from '../test-end/test-end.component';
 import { SupabaseService } from '../../services/supabase.service';
 import { Response } from '../../shared/models/response';
 import { User } from '../../shared/models/user';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-instructions',
