@@ -33,4 +33,9 @@ export class ImageTestComponent implements OnInit, OnDestroy {
   addToGroup3(event: MatChipInputEvent){
     this.sharedService.addToGroup3(event)
   }
+
+  imageLoad() {
+    console.log('Image loaded');
+    
+  }
 }
