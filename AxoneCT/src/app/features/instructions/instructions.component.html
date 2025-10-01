@@ -66,7 +66,7 @@
                     </li>
                         
                 </ol>
-                <p>En la parte de abajo encontrarás un campo de texto para practicar o simular el ejercicio, de manera que te familiarices con la tarea antes de iniciar.</p>
+                <p>En la parte de abajo encontrarás un campo de texto para practicar o simular el ejercicio, de manera que te familiarices con la tarea antes de iniciar. Debes agregar minimo un grupo de palabras adicional al ejemplo de abajo para poder continuar.</p>
                 <p class="title">Ejemplo:</p>
                 <div class="example">
                     <div class="img-container">
@@ -87,6 +87,8 @@
                                 placeholder="Nueva palabra..."
                                 [matChipInputFor]="chipGrid"
                                 (matChipInputTokenEnd)="add($event)"
+                                pattern="[A-Za-z0-9]+"
+                                (keydown)="sharedService.validateInput($event)"
                             />
                         </mat-form-field>
 
@@ -175,7 +177,9 @@ argumentación crítica frente a la información planteada.</p>
 
     <div class="bottom">
         @if(page < 4) {
-            <button (click)="next()" class="button" mat-flat-button [disabled]="(page == 3 && sharedService.remainingSeconds > 0)">Continuar</button>
+
+            <button (click)="next()" class="button" mat-flat-button [disabled]="(page == 3 && sharedService.remainingSeconds > 0) || (page == 2 && sharedService.testWordGroup.length < 3)  ">Continuar</button>
+            
 
         }@else if(page == 5) {
             @if(sharedService.remainingSecondsText > 0){

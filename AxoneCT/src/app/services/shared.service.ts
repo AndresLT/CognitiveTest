@@ -245,4 +245,11 @@ export class SharedService {
       clearInterval(this.intervalIdText);
     }
   }
+
+  validateInput(event: KeyboardEvent) {
+    const allowed = /^[a-zA-Z0-9]$/;
+    if (!allowed.test(event.key)) {
+      event.preventDefault();
+    }
+  }
 }

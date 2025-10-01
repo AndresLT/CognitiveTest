@@ -24,6 +24,7 @@ export class InstructionsComponent {
   page = 1;
   readonly keywords = signal<string[]>([]);
   readonly formControl = new FormControl(['']);
+  input = ''
   
   next() {
     if(this.page == 5){

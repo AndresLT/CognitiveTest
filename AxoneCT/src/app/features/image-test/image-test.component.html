@@ -27,6 +27,8 @@
                     [matChipInputFor]="chipGrid"
                     (matChipInputTokenEnd)="addToGroup1($event)"
                     [disabled]="sharedService.remainingSeconds == 0"
+                    pattern="[A-Za-z0-9]+"
+                    (keydown)="sharedService.validateInput($event)"
                 />
             </mat-form-field>
     
@@ -71,6 +73,8 @@
                     [matChipInputFor]="chipGrid"
                     (matChipInputTokenEnd)="addToGroup2($event)"
                     [disabled]="sharedService.remainingSeconds == 0"
+                    pattern="[A-Za-z0-9]+"
+                    (keydown)="sharedService.validateInput($event)"
                 />
             </mat-form-field>
     
@@ -116,6 +120,8 @@
                     [matChipInputFor]="chipGrid"
                     (matChipInputTokenEnd)="addToGroup3($event)"
                     [disabled]="sharedService.remainingSeconds == 0"
+                    pattern="[A-Za-z0-9]+"
+                    (keydown)="sharedService.validateInput($event)"
                 />
             </mat-form-field>
     
