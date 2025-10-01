@@ -248,8 +248,11 @@ export class SharedService {
 
   validateInput(event: KeyboardEvent) {
     const allowed = /^[a-zA-Z0-9]$/;
-    if (!allowed.test(event.key)) {
-      event.preventDefault();
-    }
+    const controlKeys = [
+    'Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Home', 'End'
+  ];
+  if (!allowed.test(event.key) && !controlKeys.includes(event.key)) {
+    event.preventDefault();
+  }
   }
 }
