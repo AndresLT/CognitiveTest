@@ -68,9 +68,16 @@
                 }
 
                 .groups{
+                    margin-top: 20px;
                     .group{
                         display: flex;
                         gap: 5px;
+                    }
+
+                }
+                @media (width < 452px) {
+                    .groups {
+                        margin-top: 35px;
                     }
                 }
             }

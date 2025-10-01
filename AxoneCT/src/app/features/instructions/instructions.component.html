@@ -66,7 +66,7 @@
                     </li>
                         
                 </ol>
-                <p>En la parte de abajo encontrarás un campo de texto para practicar o simular el ejercicio, de manera que te familiarices con la tarea antes de iniciar. <strong>Debes agregar minimo un grupo de palabras adicional al ejemplo de abajo para poder continuar</strong>.</p>
+                <p>En la parte de abajo encontrarás un campo de texto para practicar o simular el ejercicio, de manera que te familiarices con la tarea antes de iniciar. <strong>Debes agregar mínimo un grupo de palabras adicional al ejemplo de abajo para poder continuar</strong>.</p>
                 <p class="title">Ejemplo:</p>
                 <div class="example">
                     <div class="img-container">
@@ -90,6 +90,7 @@
                                 pattern="[A-Za-z0-9]+"
                                 (keydown)="sharedService.validateInput($event)"
                             />
+                            <mat-hint>Escribe una palabra y luego presiona Enter para agregar la palabra al grupo. Solo es permitido escribir letras y numeros.</mat-hint>
                         </mat-form-field>
 
                         <div class="groups">

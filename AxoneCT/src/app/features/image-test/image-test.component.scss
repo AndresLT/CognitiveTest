@@ -56,6 +56,7 @@ h4{
 
     .input-container{
         flex-grow: 2;
+        margin-top: 25px;
         .example-form-field{
             width: 100%;
         }
@@ -64,6 +65,24 @@ h4{
             .group{
                 display: flex;
                 gap: 5px;
+            }
+        }
+
+        @media (width <= 1468px) {
+            .groups{
+                margin-top: 40px;
+            }
+        }
+
+        @media (width <= 1280px) {
+            .groups{
+                margin-top: 25px;
+            }
+        }
+
+        @media (width <= 451px) {
+            .groups{
+                margin-top: 40px;
             }
         }
     }
