@@ -249,7 +249,7 @@ export class SharedService {
   }
 
   validateInput(event: KeyboardEvent) {
-    const allowed = /^[a-zA-Z0-9]$/;
+    const allowed = /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ]$/;
     const controlKeys = [
     'Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Home', 'End'
   ];

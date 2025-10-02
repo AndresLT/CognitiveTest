@@ -33,7 +33,7 @@
                     [matChipInputFor]="chipGrid"
                     (matChipInputTokenEnd)="addToGroup1($event)"
                     [disabled]="sharedService.remainingSeconds == 0"
-                    pattern="[A-Za-z0-9]+"
+                    pattern="[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]+"
                     (keydown)="sharedService.validateInput($event)"
                 />
                 <mat-hint>Escribe una palabra y luego presiona Enter para agregar la palabra al grupo. Solo es permitido escribir letras y números.</mat-hint>
@@ -80,7 +80,7 @@
                     [matChipInputFor]="chipGrid"
                     (matChipInputTokenEnd)="addToGroup2($event)"
                     [disabled]="sharedService.remainingSeconds == 0"
-                    pattern="[A-Za-z0-9]+"
+                    pattern="[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]+"
                     (keydown)="sharedService.validateInput($event)"
                 />
                 <mat-hint>Escribe una palabra y luego presiona Enter para agregar la palabra al grupo. Solo es permitido escribir letras y números.</mat-hint>
@@ -128,7 +128,7 @@
                     [matChipInputFor]="chipGrid"
                     (matChipInputTokenEnd)="addToGroup3($event)"
                     [disabled]="sharedService.remainingSeconds == 0"
-                    pattern="[A-Za-z0-9]+"
+                    pattern="[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]+"
                     (keydown)="sharedService.validateInput($event)"
                 />
                 <mat-hint>Escribe una palabra y luego presiona Enter para agregar la palabra al grupo. Solo es permitido escribir letras y números.</mat-hint>
