@@ -1,8 +1,14 @@
 <div class="timer-container">
     <h3>⏳ Tiempo restante:</h3>
-    <p class="timer-display">
-    {{ sharedService.minutes }}:{{sharedService.seconds < 10 ? '0' + sharedService.seconds : sharedService.seconds }}
-    </p>
+    @if(sharedService.imageLoaded){
+        <p class="timer-display">
+        {{ sharedService.minutes }}:{{sharedService.seconds < 10 ? '0' + sharedService.seconds : sharedService.seconds }}
+        </p>
+    }@else {
+        <p class="timer-display">
+        00:00
+        </p>
+    }
 
 </div>
 <h4>Imagen {{ sharedService.currentImage}} / 3 </h4>
