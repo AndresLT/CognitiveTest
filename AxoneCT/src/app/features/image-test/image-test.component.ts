@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SharedService } from '../../services/shared.service';
+import { NgStyle } from "../../../../node_modules/@angular/common/common_module.d-NEF7UaHr";
 
 @Component({
   selector: 'app-image-test',
@@ -36,6 +37,8 @@ export class ImageTestComponent implements OnInit, OnDestroy {
 
   imageLoad() {
     console.log('Image loaded');
-    
+    this.sharedService.resetCountdown()
+    this.sharedService.imageLoaded = true;
+    this.sharedService.hideSpinner()
   }
 }

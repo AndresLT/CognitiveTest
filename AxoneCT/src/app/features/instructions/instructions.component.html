@@ -1,179 +1,172 @@
 <div class="main-container">
     <div class="top">
-        @defer (when page == 1) {
-            @if(page == 1){
-                <p class="title"> <strong>Instrucciones</strong> </p>
-                <p>A continuación, comenzarás con el desarrollo de las tareas cognitivas, las cuales estarán divididas en dos partes (antes de iniciar cada parte encontrarás instrucciones adicionales):</p>
-                <ol>
-                    <li>
-                        <p>Primera parte: enfocada en el pensamiento creativo 🤯.</p>
-                    </li>
-                    <li>
-                        <p>Segunda parte: enfocada en el pensamiento crítico 🧐.</p>
-                    </li>
-                </ol>
-            }
+        @if(page == 1){
+            <p class="title"> <strong>Instrucciones</strong> </p>
+            <p>A continuación, comenzarás con el desarrollo de las tareas cognitivas, las cuales estarán divididas en dos partes (antes de iniciar cada parte encontrarás instrucciones adicionales):</p>
+            <ol>
+                <li>
+                    <p>Primera parte: enfocada en el pensamiento creativo 🤯.</p>
+                </li>
+                <li>
+                    <p>Segunda parte: enfocada en el pensamiento crítico 🧐.</p>
+                </li>
+            </ol>
         }
+    
 
-        @defer (when page ==2) {
-            @if(page == 2){
-                <p class="title">Pensamiento creativo</p>
-                <ol>
-                    <li>
-                        <p>Se te presentarán tres imágenes, cada una con múltiples elementos visuales.</p>
-                    </li>
-                    <li>
-                        <p>Observa con atención cada imagen. Detente en los detalles, analiza los objetos, símbolos y posibles relaciones entre ellos.</p>
-                    </li>
-                    <li>
-                        <p>Tu tarea será formar grupos de tres palabras que tengan una relación clara entre sí, tomando como base lo que observes en la imagen.</p>
-                    </li>
-                    <li>
-                        <p><strong>Tiempo límite: dispondrás de 1 minuto por imagen para formar la mayor cantidad de grupos posibles (Recuerda que cada grupo debe tener tres palabras)</strong> ⚠️.</p>
-                    </li>
-                    <li>
-                        <p> Al hacer click en “Continuar”, aparecerá en pantalla un recordatorio del tiempo con el que cuentas; confirma solo cuando consideres que estés preparado/a para comenzar.</p>
-                    </li>
-                    <li>
-                        <p> Tras confirmar, se activará automáticamente un temporizador de 1 minuto correspondiente a la imagen en pantalla. Durante ese minuto podrás ingresar las palabras y formar los grupos; el contador será visible para ayudarte a gestionar el tiempo.</p>
-                    </li>
-                    <li>
-                        <p> Cuando el minuto finalice, el campo de texto quedará deshabilitado y ya no se aceptarán más entradas para esa imagen.</p>
-                    </li>
-                    <li>
-                        <p> A continuación se habilitará el botón “Continuar”: pulsa dicho botón para avanzar a la siguiente imagen y activar el temporizador correspondiente.</p>
-                    </li>
-                </ol>
-                <p class="title">Cómo formar los grupos</p>
-                <ol>    
-                    <li>
-                        <p>Verás una imagen y un campo de texto debajo o al lado derecho.</p>
-                    </li>
-                    <li>
-                        <p>Escribe la primera palabra de tu grupo y presiona la tecla Enter.</p>
-                    </li>
-                    <li>
-                        <p>Repite el proceso para la segunda y la tercera palabra.</p>
-                    </li>
-                    <li>
-                        <p>Cada vez que presiones Enter, la palabra se agregará automáticamente a tu grupo.</p>
-                    </li>
-                    <li>
-                        <p>Una vez completes tres palabras, tu grupo quedará registrado y podrás iniciar otro nuevo.</p>
-                    </li>
-                    <li>
-                        <p> <strong>Pruébalo acá abajo antes de empezar la prueba e inicia cuando te sientas preparado(a). Recuerda que no podrás retroceder en las fases de la prueba</strong> . </p>
-                    </li>
-                        
-                </ol>
-                <p>En la parte de abajo encontrarás un campo de texto para practicar o simular el ejercicio, de manera que te familiarices con la tarea antes de iniciar. <strong>Debes agregar mínimo un grupo de palabras adicional al ejemplo de abajo para poder continuar</strong>.</p>
-                <p class="title">Ejemplo:</p>
-                <div class="example">
-                    <div class="img-container">
-                        <!-- <img ngSrc="https://sthsguhtgaahhbinjege.supabase.co/storage/v1/object/public/AxoneAssets/1.webp" priority width="auto" height="auto" alt=""> -->
-                        <img src="https://sthsguhtgaahhbinjege.supabase.co/storage/v1/object/public/AxoneAssets/1.webp" loading="lazy" alt="">
-                    </div>
-                    <div class="input-container">
-                        <mat-form-field class="example-form-field" appearance="outline">
-                            <mat-label>Grupo de palabras</mat-label>
-                            <mat-chip-grid #chipGrid aria-label="Enter keywords" [formControl]="formControl">
-                                @for (keyword of keywords(); track keyword) {
-                                <mat-chip-row>
-                                    {{keyword}}
-                                </mat-chip-row>
-                                }
-                            </mat-chip-grid>
-                            <input
-                                placeholder="Nueva palabra..."
-                                [matChipInputFor]="chipGrid"
-                                (matChipInputTokenEnd)="add($event)"
-                                pattern="[A-Za-z0-9]+"
-                                (keydown)="sharedService.validateInput($event)"
-                            />
-                            <mat-hint>Escribe una palabra y luego presiona Enter para agregar la palabra al grupo. Solo es permitido escribir letras y números.</mat-hint>
-                        </mat-form-field>
+        @if(page == 2){
+            <p class="title">Pensamiento creativo</p>
+            <ol>
+                <li>
+                    <p>Se te presentarán tres imágenes, cada una con múltiples elementos visuales.</p>
+                </li>
+                <li>
+                    <p>Observa con atención cada imagen. Detente en los detalles, analiza los objetos, símbolos y posibles relaciones entre ellos.</p>
+                </li>
+                <li>
+                    <p>Tu tarea será formar grupos de tres palabras que tengan una relación clara entre sí, tomando como base lo que observes en la imagen.</p>
+                </li>
+                <li>
+                    <p><strong>Tiempo límite: dispondrás de 1 minuto por imagen para formar la mayor cantidad de grupos posibles (Recuerda que cada grupo debe tener tres palabras)</strong> ⚠️.</p>
+                </li>
+                <li>
+                    <p> Al hacer click en “Continuar”, aparecerá en pantalla un recordatorio del tiempo con el que cuentas; confirma solo cuando consideres que estés preparado/a para comenzar.</p>
+                </li>
+                <li>
+                    <p> Tras confirmar, se activará automáticamente un temporizador de 1 minuto correspondiente a la imagen en pantalla. Durante ese minuto podrás ingresar las palabras y formar los grupos; el contador será visible para ayudarte a gestionar el tiempo.</p>
+                </li>
+                <li>
+                    <p> Cuando el minuto finalice, el campo de texto quedará deshabilitado y ya no se aceptarán más entradas para esa imagen.</p>
+                </li>
+                <li>
+                    <p> A continuación se habilitará el botón “Continuar”: pulsa dicho botón para avanzar a la siguiente imagen y activar el temporizador correspondiente.</p>
+                </li>
+            </ol>
+            <p class="title">Cómo formar los grupos</p>
+            <ol>    
+                <li>
+                    <p>Verás una imagen y un campo de texto debajo o al lado derecho.</p>
+                </li>
+                <li>
+                    <p>Escribe la primera palabra de tu grupo y presiona la tecla Enter.</p>
+                </li>
+                <li>
+                    <p>Repite el proceso para la segunda y la tercera palabra.</p>
+                </li>
+                <li>
+                    <p>Cada vez que presiones Enter, la palabra se agregará automáticamente a tu grupo.</p>
+                </li>
+                <li>
+                    <p>Una vez completes tres palabras, tu grupo quedará registrado y podrás iniciar otro nuevo.</p>
+                </li>
+                <li>
+                    <p> <strong>Pruébalo acá abajo antes de empezar la prueba e inicia cuando te sientas preparado(a). Recuerda que no podrás retroceder en las fases de la prueba</strong> . </p>
+                </li>
+                    
+            </ol>
+            <p>En la parte de abajo encontrarás un campo de texto para practicar o simular el ejercicio, de manera que te familiarices con la tarea antes de iniciar. <strong>Debes agregar mínimo un grupo de palabras adicional al ejemplo de abajo para poder continuar</strong>.</p>
+            <p class="title">Ejemplo:</p>
+            <div class="example">
+                <div class="img-container">
+                    <!-- <img ngSrc="https://sthsguhtgaahhbinjege.supabase.co/storage/v1/object/public/AxoneAssets/1.webp" priority width="auto" height="auto" alt=""> -->
+                    <img src="https://sthsguhtgaahhbinjege.supabase.co/storage/v1/object/public/AxoneAssets/1.webp" loading="lazy" alt="">
+                </div>
+                <div class="input-container">
+                    <mat-form-field class="example-form-field" appearance="outline">
+                        <mat-label>Grupo de palabras</mat-label>
+                        <mat-chip-grid #chipGrid aria-label="Enter keywords" [formControl]="formControl">
+                            @for (keyword of keywords(); track keyword) {
+                            <mat-chip-row>
+                                {{keyword}}
+                            </mat-chip-row>
+                            }
+                        </mat-chip-grid>
+                        <input
+                            placeholder="Nueva palabra..."
+                            [matChipInputFor]="chipGrid"
+                            (matChipInputTokenEnd)="add($event)"
+                            pattern="[A-Za-z0-9]+"
+                            (keydown)="sharedService.validateInput($event)"
+                        />
+                        <mat-hint>Escribe una palabra y luego presiona Enter para agregar la palabra al grupo. Solo es permitido escribir letras y números.</mat-hint>
+                    </mat-form-field>
 
-                        <div class="groups">
-                            <ol>
-                            @for(wordGroup of sharedService.testWordGroup; track wordGroup) {
-                                <li>
-                                <div class="group">
+                    <div class="groups">
+                        <ol>
+                        @for(wordGroup of sharedService.testWordGroup; track wordGroup) {
+                            <li>
+                            <div class="group">
 
-                                        @for(word of wordGroup; let i = $index; track word) {
-                                            <span class="word">{{word}}</span>
-                                            @if(i < wordGroup.length - 1) {
-                                                <span> - </span>
-                                            }
+                                    @for(word of wordGroup; let i = $index; track word) {
+                                        <span class="word">{{word}}</span>
+                                        @if(i < wordGroup.length - 1) {
+                                            <span> - </span>
                                         }
-                                    </div>
-                                </li>
-                                }
-                            </ol>
-                        </div>
+                                    }
+                                </div>
+                            </li>
+                            }
+                        </ol>
                     </div>
                 </div>
-            }
+            </div>
         }
+    
 
-        @defer (when page ==3) {
-            @if(page == 3){
-                <div class="test-container">
+        @if(page == 3){
+            <div class="test-container">
 
-                    <app-image-test></app-image-test>
-                </div>
-            }
+                <app-image-test></app-image-test>
+            </div>
         }
+    
 
-        @defer (when page ==4) {
-            @if(page == 4){
-                <p class="title">Pensamiento crítico</p>
-                <ol>
-                    <li>
-                        <p>Se te presentarán dos enunciados breves.</p>
-                    </li>
-                    <li>
-                        <p>El primer enunciado estará acompañado de 2 preguntas, y el segundo enunciado
+        @if(page == 4){
+            <p class="title">Pensamiento crítico</p>
+            <ol>
+                <li>
+                    <p>Se te presentarán dos enunciados breves.</p>
+                </li>
+                <li>
+                    <p>El primer enunciado estará acompañado de 2 preguntas, y el segundo enunciado
 de 3 preguntas de opción múltiple relacionadas con la información presentada.</p>
-                    </li>
-                    <li>
-                        <p>Tu tarea será leer atentamente cada enunciado, analizar el contenido y responder
+                </li>
+                <li>
+                    <p>Tu tarea será leer atentamente cada enunciado, analizar el contenido y responder
 las preguntas, eligiendo la alternativa que consideres más acertada.</p>
-                    </li>
-                    <li>
-                        <p>Ten en cuenta que el propósito de esta tarea no es identificar respuestas
+                </li>
+                <li>
+                    <p>Ten en cuenta que el propósito de esta tarea no es identificar respuestas
 absolutas, sino valorar tu capacidad de discernimiento, razonamiento y
 argumentación crítica frente a la información planteada.</p>
-                    </li>
-                    <li>
-                        <p> <strong>Dispondrás de un tiempo máximo de 5 minutos para completar este apartado</strong> .</p>
-                    </li>
-                    <li>
-                        <p> Tras dar click en confirmar se activará automáticamente un temporizador de 5 minutos correspondientes a los 2 enunciados y sus respectivas preguntas.</p>
-                    </li>
-                    <li>
-                        <p> Cuando el tiempo finalice las respuestas serán bloqueadas y no podrás cambiarlas ⚠️.</p>
-                    </li>
-                </ol>
-            }
+                </li>
+                <li>
+                    <p> <strong>Dispondrás de un tiempo máximo de 5 minutos para completar este apartado</strong> .</p>
+                </li>
+                <li>
+                    <p> Tras dar click en confirmar se activará automáticamente un temporizador de 5 minutos correspondientes a los 2 enunciados y sus respectivas preguntas.</p>
+                </li>
+                <li>
+                    <p> Cuando el tiempo finalice las respuestas serán bloqueadas y no podrás cambiarlas ⚠️.</p>
+                </li>
+            </ol>
         }
 
-        @defer (when page ==5) {
-            @if(page == 5){
-                <div class="test-container">
+        @if(page == 5){
+            <div class="test-container">
 
-                    <app-text-test></app-text-test>
-                </div>
-            }
+                <app-text-test></app-text-test>
+            </div>
         }
+    
 
-        @defer (when page ==6) {
-            @if(page == 6){
-                <div class="test-container">
+        @if(page == 6){
+            <div class="test-container">
 
-                    <app-test-end></app-test-end>
-                </div>
-            }
+                <app-test-end></app-test-end>
+            </div>
         }
+        
     </div>
 
     <div class="bottom">

@@ -21,6 +21,8 @@ export class SharedService {
   userValidated = false
   page = 1
 
+  imageLoaded = false;
+
   testWordGroup = [['Maestra', 'Estudiantes', 'Clase'], ['Pizarra', 'Tiza', 'Ecuacion']]
   
   readonly keywords = signal<string[]>([]);

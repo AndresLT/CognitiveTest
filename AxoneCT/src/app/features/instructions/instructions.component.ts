@@ -42,9 +42,11 @@ export class InstructionsComponent {
     if(this.page < 3){
       this.page++;
     }else if (this.page == 3){
+      this.sharedService.showSpinner()
       this.sharedService.resetCountdown()
       this.sharedService.keywords.set([])
       this.sharedService.currentImage++
+      this.sharedService.imageLoaded = false;
     }
     if(this.page == 3 && this.sharedService.currentImage == 1){
       alert('¡Recuerda que el contador de 1 minuto inciará al dar click en "Ok"!')
